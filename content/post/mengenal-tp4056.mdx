@@ -1,0 +1,29 @@
+---
+title: Mengenal Modul TP4056 untuk Manajemen Baterai Lithium
+date: 25 Juli 2026
+---
+
+Modul TP4056 adalah salah satu komponen yang paling sering digunakan dalam pengembangan perangkat keras skala kecil, terutama yang melibatkan baterai Lithium-Ion (Li-ion) 18650.
+
+## Mengapa TP4056?
+
+Dalam proyek IoT seperti sensor cuaca atau pemantauan suhu berbasis ESP32, suplai daya yang stabil dan aman sangat krusial. TP4056 menawarkan beberapa keunggulan:
+
+*   **Arus Pengisian Konstan:** Mampu mengisi daya hingga 1A, yang sangat cukup untuk baterai standar.
+*   **Proteksi Overcharge:** Otomatis memutus arus saat baterai mencapai 4.2V.
+*   **Proteksi Over-discharge (Varian Tertentu):** Varian dengan IC proteksi tambahan (seperti DW01A) mencegah tegangan baterai turun di bawah 2.5V.
+
+## Implementasi pada ESP32
+
+Saat merancang *power path routing* untuk mikrokontroler ESP32, kita harus sangat memperhatikan manajemen daya, terutama saat perangkat masuk ke mode *Deep Sleep*. 
+
+Kelemahan utama dari penggunaan langsung tanpa sirkuit tambahan adalah adanya *leakage current* (kebocoran arus) yang secara perlahan menguras baterai.
+
+### Solusi: P-Channel MOSFET
+
+Untuk mengatasi masalah kebocoran arus, kita dapat mengintegrasikan **P-Channel MOSFET** ke dalam jalur daya. 
+
+1. MOSFET akan memutus jalur beban (ke ESP32) jika daya eksternal dilepas dan baterai berada di bawah batas aman.
+2. Ketika dikombinasikan dengan modul TP4056, sirkuit ini memastikan baterai terisi dengan aman sambil menekan konsumsi daya seminimal mungkin saat perangkat tertidur lelap.
+
+Kesimpulannya, memadukan TP4056 dengan desain sirkuit *power routing* yang cerdas adalah kunci untuk menciptakan *embedded system* yang handal dan bertahan lama di lapangan.

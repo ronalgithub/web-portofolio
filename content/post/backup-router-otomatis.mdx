@@ -1,0 +1,20 @@
+---
+title: Pentingnya Backup Konfigurasi Router secara Otomatis
+date: 12 Agustus 2026
+---
+
+Sebagai seorang Network Engineer, kehilangan konfigurasi router akibat kerusakan *hardware* atau *human error* adalah mimpi buruk terbesar. 
+
+## Mengapa Backup Otomatis?
+
+Melakukan *backup* secara manual sering kali terlupakan, terutama di tengah kesibukan proyek atau *maintenance* rutin. Dengan otomatisasi, kita memastikan bahwa kita selalu memiliki salinan konfigurasi terbaru tanpa harus mengingatnya.
+
+### Solusi Praktis
+
+Salah satu cara termudah yang sering saya gunakan adalah mengombinasikan *script* Python sederhana dengan Cronjob di server Ubuntu Linux:
+
+1. **Python Script:** Menggunakan pustaka seperti `netmiko` untuk login ke perangkat Cisco atau MikroTik via SSH, lalu menjalankan perintah `show running-config` (atau `export`).
+2. **Cronjob:** Menjadwalkan eksekusi *script* tersebut setiap tengah malam.
+3. **Penyimpanan:** Menyimpan hasil teks konfigurasi ke dalam repositori Git lokal, lalu melakukan `git push` otomatis ke *private repository* (seperti GitLab atau GitHub).
+
+Dengan metode ini, jika suatu saat perangkat utama mati total, proses *recovery* hanya membutuhkan waktu kurang dari 15 menit.

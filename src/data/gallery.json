@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "title": "Survei Jaringan Lot.8 SCBD",
+      "category": "Networking",
+      "desc": "Koordinasi infrastruktur jaringan backbone fiber optik di ruang server utama.",
+      "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Dismantling Site Arkadia",
+      "category": "Infrastruktur",
+      "desc": "Proses pembongkaran dan relokasi perangkat jaringan di Nestle Site Arkadia.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Perakitan Modul Daya ESP32",
+      "category": "Embedded",
+      "desc": "Integrasi TP4056 dan P-Channel MOSFET untuk manajemen daya tanpa kebocoran arus.",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
+    }
+  ]

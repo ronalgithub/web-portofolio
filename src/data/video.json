@@ -1,0 +1,14 @@
+[
+    {
+      "id": "vid-1",
+      "title": "Demo Sistem Manajemen Daya ESP32",
+      "duration": "04:12",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
+    },
+    {
+      "id": "vid-2",
+      "title": "Instalasi UniFi Controller dengan Docker",
+      "duration": "10:35",
+      "thumbnail": "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80"
+    }
+  ]

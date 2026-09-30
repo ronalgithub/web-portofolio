@@ -1,0 +1,18 @@
+---
+title: Catatan Rilis: Ubuntu 24.04 LTS untuk Server Produksi
+date: 10 Juni 2026
+---
+
+Ubuntu 24.04 LTS (Noble Numbat) telah menjadi standar baru untuk lingkungan server modern. Namun, sebelum Anda terburu-buru melakukan *upgrade* dari 22.04 LTS, ada beberapa catatan penting yang perlu diperhatikan.
+
+## 1. Manajemen Paket Jaringan (Netplan)
+Netplan kini semakin terintegrasi dengan baik. Konfigurasi IP statis, VLAN, dan *bonding* interface jaringan kini lebih konsisten. Pastikan Anda telah memigrasikan *syntax* lama jika masih ada yang mengandalkan `ifupdown`.
+
+## 2. Docker & Containerization
+Berdasarkan pengalaman saya men- *deploy* UniFi Controller dan MongoDB, *environment* Docker di Ubuntu 24.04 berjalan jauh lebih *seamless*. 
+
+*   Versi `docker-ce` terbaru memiliki kompatibilitas yang sangat baik dengan *kernel* terbaru bawaan Ubuntu 24.04.
+*   Penggunaan sumber daya (RAM & CPU) saat menjalankan banyak *container* (Docker Compose) terasa sedikit lebih efisien dibandingkan versi LTS sebelumnya.
+
+## Kesimpulan
+*Upgrade* ke 24.04 sangat disarankan untuk server produksi baru. Namun, untuk server yang sudah berjalan stabil, pastikan Anda melakukan uji coba kompatibilitas *database* (terutama versi MongoDB dan PostgreSQL spesifik) di lingkungan *staging* (seperti mesin virtual) terlebih dahulu sebelum menerapkannya secara luas.
