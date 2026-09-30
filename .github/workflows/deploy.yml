@@ -25,7 +25,9 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: npm ci # Gunakan npm install jika npm ci gagal
+        run: |
+          rm -f package-lock.json
+          npm install
       - name: Build with Next.js
         run: npm run build
       - name: Upload artifact
